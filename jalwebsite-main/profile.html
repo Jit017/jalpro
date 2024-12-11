@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styles for the profile page */
+        body {
+            font-family: 'Pixelify Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .profile-picture {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badge {
+            background: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .tip-item {
+            background: #e9ecef;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .follow-actions {
+            margin: 20px 0;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .statistics, .recent-activities, .friends-list {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .friends-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .friend {
+            background: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo">
+        </div>
+        <h1 class="jalTtitle">Welcome to Jal Sanjeevni</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="pixelify-sans-navbar">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar">Forum and Quiz</a></li>
+                <li><a href="contact.html " class="pixelify-sans-navbar">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar">Workshops</a></li>
+                <li><a href="water-conservation-challenges.html" class="pixelify-sans-navbar">Challenges</a></li>
+                <li><a href="profile.html" class="pixelify-sans-navbar">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="profile-container">
+            <h1>Your Profile</h1>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="default-profile.png" alt="Profile Picture" class="profile-picture">
+                    <h2>Username</h2>
+                </div>
+                <p><strong>Bio:</strong> A brief description about yourself.</p>
+                <p><strong>Achievements:</strong> [List of achievements]</p>
+                <div class="statistics">
+                    <h3>Profile Statistics</h3>
+                    <p>Total Water Saved: <strong>500 liters</strong></p>
+                    <p>Challenges Participated: <strong>10</strong></p>
+                </div>
+                <div class="badges">
+                    <h3>Your Badges</h3>
+                    <div class="badge-container">
+                        <div class="badge">Water Saver</div>
+                        <div class="badge">Community Helper</div>
+                        <div class="badge">Eco Warrior</div>
+                    </div>
+                </div>
+                <div class="recent-activities">
+                    <h3>Recent Activities</h3>
+                    <ul>
+                        <li>Participated in the Water Conservation Challenge</li>
+                        <li>Shared a tip on saving water</li>
+                        <li>Followed a new user</li>
+                    </ul>
+                </div>
+                <div class="friends-list">
+                    <h3>Friends/Followers</h3>
+                    <div class="friend">User 1</div>
+                    <div class="friend">User 2</div>
+                    <div class="friend">User 3</div>
+                </div>
+                <div class="follow-actions">
+                    <button id="follow-btn">Follow</button>
+                </div>
+                <div class="shared-tips">
+                    <h3>Shared Tips</h3>
+                    <textarea id="tip-input" placeholder="Share your water-saving tips here..."></textarea>
+                    <button id="share-tip-btn">Share Tip</button>
+                    <div id="tips-list">
+                        <!-- Shared tips will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle follow/unfollow functionality and tip sharing
+        const followButton = document.getElementById('follow-btn');
+        let isFollowing = false;
+
+        followButton.addEventListener('click', () => {
+            isFollowing = !isFollowing;
+            followButton.textContent = isFollowing ? 'Unfollow' : 'Follow';
+        });
+
+        const shareTipButton = document.getElementById('share-tip-btn');
+        const tipInput = document.getElementById('tip-input');
+        const tipsList = document.getElementById('tips-list');
+
+        shareTipButton.addEventListener('click', () => {
+            const tipText = tipInput.value.trim();
+            if (tipText) {
+                const tipItem = document.createElement('div');
+                tipItem.className = 'tip-item';
+                tipItem.textContent = tipText;
+                tipsList.appendChild(tipItem);
+                tipInput.value = ''; // Clear the input after sharing
+            }
+        });
+    </script>
+</body>
+</html>

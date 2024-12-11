@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Jal Sanjeevni</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header style="background: linear-gradient(90deg, #ffffff, #038bfa); padding: 20px; color: rgb(3, 146, 249); display: flex; align-items: center; justify-content: space-between;">
+        <div class="logo" style="display: flex; align-items: center;">
+            <img src="jal_sanjeevni_logo.png" alt="Jal Sanjeevni Logo" style="height: 80px; margin-right: 15px;">
+            <h1 style="margin: 0; font-size: 1.5rem;">Jal Sanjeevni</h1>
+        </div>
+        <nav>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 15px;">
+                <li><a href="index.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Home</a></li>
+                <li><a href="techniques.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Techniques</a></li>
+                <li><a href="case-studies.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Case Studies</a></li>
+                <li><a href="forum.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Forum and Quiz</a></li>
+                <li><a href="contact.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Contact</a></li>
+                <li><a href="gallery.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Gallery</a></li>
+                <li><a href="workshops.html" class="pixelify-sans-navbar" style="text-decoration: none; color: white; font-weight: bold;">Workshops</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Login</h2>
+                <form action="process_login.php" method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <br><br>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <br><br>
+
+                    <button type="submit">Login</button>
+                </form>
+                <br>
+                <p>New user? <a href="survey.html">Take our survey to get started</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h4>&copy; 2024 Water Efficient Knowledge Platform. All rights reserved.</h4>
+    </footer>
+</body>
+</html>
